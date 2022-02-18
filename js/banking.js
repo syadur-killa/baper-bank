@@ -1,5 +1,6 @@
 // Function for Collcect Data from input and Button 
 function inputValue(inputID) {
+    debugger;
     const inputValue = document.getElementById(inputID);
     const newAmountTxt = inputValue.value;
     const newAmount = parseFloat(newAmountTxt);
@@ -32,8 +33,11 @@ function updateBalance(totalAmount, isAdd) {
 document.getElementById('deposit-button').addEventListener('click', function () {
 
     const depositAmount = inputValue('deposit-input')
-    updatetotalField(depositAmount, 'deposit-total');
-    updateBalance(depositAmount, true);
+    if (depositAmount >0) {
+        updatetotalField(depositAmount, 'deposit-total');
+        updateBalance(depositAmount, true);
+    }
+    
 
     // update deposit total
     // const depositTotal = document.getElementById('deposit-total');
@@ -59,8 +63,11 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 // handle withdraw event handler
 document.getElementById('withdraw-button').addEventListener('click', function () {
     const newWithdrawAmount =  inputValue('withdraw-input')
-    updatetotalField(newWithdrawAmount, 'withdraw-total');
-    updateBalance(newWithdrawAmount, false);
+    if (newWithdrawAmount>0) {
+        updatetotalField(newWithdrawAmount, 'withdraw-total');
+        updateBalance(newWithdrawAmount, false);
+    }
+    
     // const withdrawInput = document.getElementById('withdraw-input');
     // const withdrawAmountText = withdrawInput.value;
     // const newWithdrawAmount = parseFloat(withdrawAmountText);
