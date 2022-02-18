@@ -1,21 +1,15 @@
-// function doubleIt (num){
-//     const result = num*2;
-//     return result;
-// }
-
-// const first = doubleIt(5);
-// const second = doubleIt(7);
-
-
-function getInputValue() {
-    const depositInput = document.getElementById('deposit-input');
-    const newDepositAmountText = depositInput.value;
-    const newDepositAmount = parseFloat(newDepositAmountText);
-    
-    depositInput.value = '';
-    return newDepositAmount;
-
+// Function for Collcect Data from input and Button 
+function inputValue(inputID) {
+    const inputValue = document.getElementById(inputID);
+    const newAmountTxt = inputValue.value;
+    const newAmount = parseFloat(newAmountTxt);
+    inputValue.value = '';
+    return newAmount;
 }
+
+
+
+
 // handle deposit button event
 document.getElementById('deposit-button').addEventListener('click', function () {
     // get the amount deposited
@@ -23,7 +17,7 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     // const newDepositAmountText = depositInput.value;
     // const newDepositAmount = parseFloat(newDepositAmountText);
 
-    const newDepositAmount = getInputValue()
+    const newDepositAmount = inputValue('deposit-input')
 
     // update deposit total
     const depositTotal = document.getElementById('deposit-total');
@@ -45,10 +39,12 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 
 // handle withdraw event handler
 document.getElementById('withdraw-button').addEventListener('click', function () {
-    const withdrawInput = document.getElementById('withdraw-input');
-    const withdrawAmountText = withdrawInput.value;
-    const newWithdrawAmount = parseFloat(withdrawAmountText);
-    console.log(newWithdrawAmount);
+    // const withdrawInput = document.getElementById('withdraw-input');
+    // const withdrawAmountText = withdrawInput.value;
+    // const newWithdrawAmount = parseFloat(withdrawAmountText);
+    // console.log(newWithdrawAmount);
+
+    const newWithdrawAmount =  inputValue('withdraw-input')
 
     // set withdraw total
     const withdrawTotal = document.getElementById('withdraw-total');
@@ -67,5 +63,5 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     balanceTotal.innerText = newBalanceTotal;
 
     // clear withdraw input
-    withdrawInput.value = '';
+    
 })
